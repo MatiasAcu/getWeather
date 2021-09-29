@@ -1,0 +1,36 @@
+{
+  "MAIN_SCREEN": {
+    "HUMIDITY": "Humidity",
+    "WIND": "Wind speed",
+    "CLOUDS": "Cloudiness",
+    "PRESSURE": "Pressure"
+  },
+  "LANGUAGES": {
+    "EN": "English",
+    "ES": "Spanish",
+    "DE": "German"
+  },
+  "UNITS": {
+    "METRIC": "Metric",
+    "IMPERIAL": "Imperial"
+  },
+  "LOCATIONS_MENU": {
+    "TITLE": "Manage Locations",
+    "AUTOCOMPLETE_TITLE": "Search location"
+  },
+  "PREFERENCES_MENU": {
+    "TITLE": "Preferences Menu",
+    "UNIT_LABEL": "Unit System",
+    "LANGUAGE_LABEL": "Language"
+  },
+  "ERROR_MESSAGE": {
+    "NETWORK": {
+      "1": "Whoops, something went wrong.",
+      "2": "Try reloading"
+    },
+    "GPS": {
+      "1": "GPS is disabled.",
+      "2": "Turn it on and reload the page"
+    }
+  }
+}

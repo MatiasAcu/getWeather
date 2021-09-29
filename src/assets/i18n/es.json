@@ -1,0 +1,36 @@
+{
+  "MAIN_SCREEN": {
+    "HUMIDITY": "Humedad",
+    "WIND": "Velocidad del viento",
+    "CLOUDS": "Nubosidad",
+    "PRESSURE": "Presion"
+  },
+  "LANGUAGES": {
+    "EN": "Ingles",
+    "ES": "Español",
+    "DE": "Aleman"
+  },
+  "UNITS": {
+    "METRIC": "Metrico",
+    "IMPERIAL": "Imperial"
+  },
+  "LOCATIONS_MENU": {
+    "TITLE": "Administrar ciudades",
+    "AUTOCOMPLETE_TITLE": "Busca una ciudad "
+  },
+  "PREFERENCES_MENU": {
+    "TITLE": "Preferencias",
+    "UNIT_LABEL": "Sistema de unidades",
+    "LANGUAGE_LABEL": "Idioma"
+  },
+  "ERROR_MESSAGE": {
+    "NETWORK": {
+      "1": "Ups, algo salio mal.",
+      "2": "Intente recargar la pagina"
+    },
+    "GPS": {
+      "1": "GPS desactivado.",
+      "2": "Activa los servicios de ubicacion y recarga la pagina"
+    }
+  }
+}

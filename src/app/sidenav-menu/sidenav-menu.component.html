@@ -1,0 +1,72 @@
+<div [ngClass]="containerClass" class="menu-container">
+  <div [ngClass]="menuClass" [ngSwitch]="status" style="height: 100%">
+    <div class="menu-header">
+      <p *ngSwitchCase="'Preferences Menu'" class="menu-title">{{'PREFERENCES_MENU.TITLE' | transloco}}</p>
+      <p *ngSwitchCase="'Locations Menu'" class="menu-title">{{'LOCATIONS_MENU.TITLE' | transloco}} </p>
+      <div class="menu-close-button-container">
+        <img (click)="close()" src="../../assets/icons/close-button.svg">
+      </div>
+    </div>
+    <div class="menu-body">
+      <div *ngSwitchCase="'Preferences Menu'">
+        <div class="unit-form">
+          <p>{{'PREFERENCES_MENU.UNIT_LABEL' | transloco}}</p>
+          <select #unitInput (change)="setSelectedUnit(unitInput.options[unitInput.selectedIndex].value);" id="units">
+            <option selected>{{selectedUnit | transloco}}</option>
+            <ng-container *ngFor="let unit of units">
+              <option *ngIf="(unit | transloco) != (selectedUnit | transloco)">{{unit | transloco}}</option>
+            </ng-container>
+          </select>
+        </div>
+        <div class="unit-form">
+          <p>{{'PREFERENCES_MENU.LANGUAGE_LABEL' | transloco}}</p>
+          <select #langInput (change)="setSelectedLanguage(langInput.options[langInput.selectedIndex].value)"
+                  id="languages">
+            <option selected>{{selectedLanguage | transloco}}</option>
+            <ng-container *ngFor="let language of getLanguageName()">
+              <option *ngIf="(language | transloco) != (selectedLanguage | transloco)">{{language | transloco}}</option>
+            </ng-container>
+          </select>
+        </div>
+      </div>
+      <div *ngSwitchCase="'Locations Menu'">
+        <div class="location-input">
+          <input #locationInput [formControl]="locationAutocomplete" [matAutocomplete]="auto" aria-label="Location"
+                 placeholder="Search location"
+                 type="text">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngIf="autoCompleteLoading">Loading...</mat-option>
+            <ng-container *ngIf="!autoCompleteLoading">
+              <mat-option (click)="insertNewLocation(location)" *ngFor="let location of filteredLocationsName"
+                          [innerHTML]="location">
+              </mat-option>
+            </ng-container>
+          </mat-autocomplete>
+        </div>
+        <div class="location-list">
+          <div (click)="setIndex(-1);updateView(GPSLocation.innerText)"
+               [class.list-item-selected]="selectedIndex == -1"
+               [class.list-item-visible]="GPSLocation.innerText == 'GPS disabled'"
+               class="location-list-item">
+            <div class="location-text-container">
+              <p #GPSLocation>{{gpsLocation | async}}</p>
+              <img alt="GPS" src="assets/icons/gps-icon.svg">
+            </div>
+          </div>
+          <ng-container *ngFor="let i = index;let location of locations | async">
+            <div (click)="setIndex(i);updateView(location)" *ngIf="location != GPSLocation.innerText"
+                 [class.list-item-selected]="selectedIndex == i"
+                 class="location-list-item">
+              <div class="location-text-container">
+                <p>{{location}}</p>
+                <img (click)="deleteLocation(location)" class="remove-item-list-button"
+                     src="assets/icons/close-button.svg">
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

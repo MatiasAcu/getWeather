@@ -1,0 +1,12 @@
+<app-sidenav-menu #sideNavMenu (closeMenu)="menuButtons.setVisible($event);mainScreen.translate()"
+                  (updateMainView)="mainScreen.updateMainScreen($event)">
+
+</app-sidenav-menu>
+
+<app-main-menu-buttons #menuButtons (openMenu)="sideNavMenu.open($event);mainScreen.translate()">
+
+</app-main-menu-buttons>
+<app-main-screen #mainScreen (locationUpdated)="sideNavMenu.updateGpsLocation($event)"></app-main-screen>
+
+
+

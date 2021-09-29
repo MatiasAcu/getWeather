@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --main-font-color: #F2EAEA;
+  --secondary-font-color: #bab9b9;
+}
+
+body {
+  background-image: url("src/assets/images/background-sunny-day.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #000000;
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  overflow-x: hidden;
+  font-family: "Bahnschrift", sans-serif;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  body {
+    font-size: 10px;
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+
+}
+
+

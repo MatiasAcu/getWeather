@@ -1,0 +1,36 @@
+{
+  "MAIN_SCREEN": {
+    "HUMIDITY": "Feuchtigkeit",
+    "WIND": "Windgeschwindigkeit",
+    "CLOUDS": "Trübung",
+    "PRESSURE": "Druck"
+  },
+  "LANGUAGES": {
+    "EN": "Englisch",
+    "ES": "Spanisch",
+    "DE": "Deutsch"
+  },
+  "UNITS": {
+    "METRIC": "Metrisch",
+    "IMPERIAL": "Imperial"
+  },
+  "LOCATIONS_MENU": {
+    "TITLE": "Standorte verwalten",
+    "AUTOCOMPLETE_TITLE": "Standort suchen"
+  },
+  "PREFERENCES_MENU": {
+    "TITLE": "Einstellungsmenü",
+    "UNIT_LABEL": "Einheitssystem",
+    "LANGUAGE_LABEL": "Sprache"
+  },
+  "ERROR_MESSAGE": {
+    "NETWORK": {
+      "1": "Ups, da ist was schief gelaufen.",
+      "2": "Versuche die Seite neu zu laden"
+    },
+    "GPS": {
+      "1": "GPS ist deaktiviert.",
+      "2": "Schalten Sie es ein und laden Sie die Seite neu"
+    }
+  }
+}

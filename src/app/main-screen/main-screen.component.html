@@ -1,0 +1,48 @@
+<div [ngClass]="translated" class="main-screen">
+  <div *ngIf="isLoaded() && (getError() == '')" class="main-data-container">
+    <div class="location-text-container">
+      <p class="location-text">{{weatherInfo?.city?.name + ', ' + weatherInfo?.city?.country}}</p>
+    </div>
+    <div class="main-data-box">
+      <h1 class="temperature-text">{{(weatherInfo?.temperature?.value | number: '1.1-1') + ' °' +
+      (weatherInfo?.temperature?.unit | uppercase | slice: 0:1)}}</h1>
+      <p class="climate-text">{{weatherInfo?.climate?.value | firstCapLetter}}</p>
+    </div>
+    <div class="data-box">
+      <div class="column">
+        <div class="data-item">
+          <p class="tag-text">{{'MAIN_SCREEN.HUMIDITY' | transloco}}</p>
+          <p class="data-text">{{weatherInfo?.humidity?.value + ' ' + weatherInfo?.humidity?.unit }}</p>
+        </div>
+        <div class="data-item">
+          <p class="tag-text">{{'MAIN_SCREEN.WIND' | transloco}}</p>
+          <p class="data-text">{{weatherInfo?.wind?.value + ' ' + weatherInfo?.wind?.unit}}</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="data-item">
+          <p class="tag-text">{{'MAIN_SCREEN.CLOUDS' | transloco}}</p>
+          <p class="data-text">{{((weatherInfo?.cloudiness) | multiply: 10) + '%'}}</p>
+        </div>
+        <div class="data-item">
+          <p class="tag-text">{{'MAIN_SCREEN.PRESSURE' | transloco}}</p>
+          <p class="data-text">{{weatherInfo?.pressure?.value + ' ' + weatherInfo?.pressure?.unit}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!isLoaded() && (error == '') " class="main-data-container">
+    <img alt="loading" src="assets/icons/loading-white.svg">
+  </div>
+  <div *ngIf="(getError() != '')">
+    <div class="main-data-box">
+      <div [ngSwitch]="getError()" id="error">
+        <img src="assets/icons/error-icon.svg">
+        <p *ngSwitchCase="'Cant connect to server'"><br>{{'ERROR_MESSAGE.NETWORK.1' | transloco}}
+          <br>{{'ERROR_MESSAGE.NETWORK.2' | transloco}}</p>
+        <p *ngSwitchCase="'GPS disabled'"><br>{{'ERROR_MESSAGE.GPS.1' | transloco}}
+          <br>{{'ERROR_MESSAGE.GPS.2' | transloco}}</p>
+      </div>
+    </div>
+  </div>
+</div>
